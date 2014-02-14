@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<header>
+<h1><%= link_to "NYC APT Alerts", root_path%></h1>
+
+<%= link_to("Please Log In!", "/users/new") %>
+
+<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+</header>
+
 <%= yield %>
 
 </body>
