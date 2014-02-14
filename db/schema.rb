@@ -21,12 +21,4 @@ ActiveRecord::Schema.define(version: 20140213205242) do
     t.integer "user_id"
   end
 
-  create_table "users", force: true do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "password"
-    t.string "password_confirmation"
-  end
-
 end
