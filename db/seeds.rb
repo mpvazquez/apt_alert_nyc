@@ -7,3 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+results = HTTParty.get("http://streeteasy.com/nyc/api/areas/search?q=*&key=a4cc7c03c02b370efc696191b0abedea2d3d0c60&format=json")
+
+results_accessor = results["areas"]
+
+counter = 0
+
+while counter != results_accessor.length 
+
+results_accessor.each do |area|
+
+Area.create(
+  title: area["title"],
+  subtitle: area["subtitle"],
+  path: area["path"],
+  boundary_encoded_points_string: area["boundary_encoded_points_string"],
+  level: area["level"],
+  se_id: area["id"],
+  se_parent_id: area["parent_id"]
+    )
+
+counter += 1
+
+end
+
+end

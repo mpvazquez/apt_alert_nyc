@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214201919) do
+ActiveRecord::Schema.define(version: 20140214205049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: true do |t|
+    t.string  "title"
+    t.string  "subtitle"
+    t.string  "path"
+    t.text    "boundary_encoded_points_string"
+    t.integer "level"
+    t.integer "se_id"
+    t.integer "se_parent_id"
+  end
 
   create_table "favorites", force: true do |t|
     t.integer "listing_id"

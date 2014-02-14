@@ -1,0 +1,15 @@
+<h3>Choose Your Desired NYC Area!</h3>
+
+<% @area.each do |area| %>
+
+  <ul>
+  <% if area.level == 1%>
+    <%= area.title %><br>
+      <% if area.level == 2 %>
+      <li><%= area.title %></li><br>
+      <% end %>
+  <% end %>
+
+  </ul>
+<% end %>
+  
