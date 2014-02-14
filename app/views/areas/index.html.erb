@@ -3,13 +3,7 @@
 <% @area.each do |area| %>
 
   <ul>
-  <% if area.level == 1%>
-    <%= area.title %><br>
-      <% if area.level == 2 %>
-      <li><%= area.title %></li><br>
-      <% end %>
-  <% end %>
-
+    <li><%=area.title if area.level == 1%></li>
   </ul>
 <% end %>
   
