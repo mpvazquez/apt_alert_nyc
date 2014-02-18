@@ -1,9 +1,15 @@
 AptAlertNyc::Application.routes.draw do
   resources :users do
-    resources :favorite_listings
+    resources :favorites
   end
 
-  resources :areas
+  resources :areas do
+    resources :listings, except: :index
+  end
+
+  get "/listings", to: "listings#index"
+  post "/listings", to: "listings#index"
+
 
   get "/login", to: "session#new"
   post "/session", to: "session#create"
