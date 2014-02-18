@@ -11,10 +11,12 @@
 <header>
 <h1><%= link_to "NYC APT Alerts", root_path%></h1>
 
-<%= link_to("Please Log In!", "/users/new") %>
-
-<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<% if logged_in? %>
+  <p><%= link_to("Log Out #{current_user.first_name}!", "/session", method: "delete") %></p>  
+<% else %>
+  <p><%= link_to("Please Log In!","/login") %></p>
+  <p><%= link_to("Register Here", new_user_path) %></p>
+<% end %>
 
 </header>
 

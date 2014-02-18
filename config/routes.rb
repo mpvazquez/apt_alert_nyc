@@ -5,5 +5,9 @@ AptAlertNyc::Application.routes.draw do
 
   resources :areas
 
+  get "/login", to: "session#new"
+  post "/session", to: "session#create"
+  delete "/session", to: "session#delete"
+
   root "welcome#index"
 end

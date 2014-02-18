@@ -1,9 +1,12 @@
 <h3>Choose Your Desired NYC Area!</h3>
 
-<% @area.each do |area| %>
-
-  <ul>
-    <li><%=area.title if area.level == 1%></li>
-  </ul>
-<% end %>
-  
+<ul>
+  <% @areas.find_all do |area| %>
+    <% case area.level %>
+      <% when 1 %>
+      <li>
+        <%= link_to "#{area.title}", area_path(area) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-before_action :load_user, only: [:show, :edit, :update, :destroy]
+  before_action :load_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, :authorize, only: [:edit, :update]
 
   def show
   end
@@ -21,7 +22,6 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   def edit
     @update_worked = true
-    # binding.pry
   end
 
   def update
@@ -32,9 +32,12 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
     else
       render(:edit)
     end
+    
   end
 
   def destroy
+    @user.destroy
+    redirect_to root_path
   end
 
   private 
@@ -45,6 +48,18 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   def user_params
     return params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def authenticate
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
+
+  def authorize
+    unless current_user == @user_path
+      redirect_to login_path
+    end
   end
 
 end
