@@ -6,6 +6,12 @@ class ListingsController < ApplicationController
     get_listing_data
   end  
 
+  def create
+    @listing = Listing.find(@area_id)
+
+    @favorite_creator = Area.find_by(title: "params[:neighborhood]")
+  end
+
   # def favorite
   #   @listing = Listing.find(params[:id])
   #     current_user.listings << @Listing
@@ -23,8 +29,6 @@ class ListingsController < ApplicationController
 
   def configure_query_url
     base_url = ["http://streeteasy.com/nyc/for-rent/"]
-
-
   end
 
   def get_listing_data
@@ -41,6 +45,8 @@ class ListingsController < ApplicationController
       output[:baths] = listing.css("div.details_info span.last_detail_cell").inner_html
       link = listing.css("div.photo a").attr("href").value
       output[:listing_link] = "http://streeteasy.com" + link
+
+      area_id = Area.find_by(title: output[:neighborhood])
 
       output
     end

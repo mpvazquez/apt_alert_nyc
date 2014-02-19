@@ -15,5 +15,7 @@ AptAlertNyc::Application.routes.draw do
   post "/session", to: "session#create"
   delete "/session", to: "session#delete"
 
+  post "/favorites", to: "favorites#create"
+
   root "welcome#index"
 end
