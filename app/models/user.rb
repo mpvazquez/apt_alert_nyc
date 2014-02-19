@@ -4,9 +4,12 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates_confirmation_of :password
+  # validates_confirmation_of :password
 
   before_save :hash_password
+
+  has_many :favorites, dependent: :destroy
+  # has_and_belongs_to_many :listings
 
   def password_changed?
     !@password.blank?
@@ -22,10 +25,9 @@ class User < ActiveRecord::Base
     return nil
   end
 
-  private
-
   def hash_password
-    self.password_digest = BCrypt::User.create(@user)
+    binding.pry
+    self.password_digest = BCrypt::Password.create(@user)
     #when registering, BCrypt errors out as an uninitialized constant
     #even after adding to Gem file, bundle installing,
     #and restarting server 

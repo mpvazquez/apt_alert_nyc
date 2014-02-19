@@ -1,23 +1,19 @@
-<h3>Please choose your rental criteria below</h3>
+<% if @final_output.first.nil? %>
+  <h3><%= "No results Found! Please lower expectations and try again!" %></h3>
 
-<%= form_for @listing do |f| %>
+  <% else %>
 
-<%= f.label :beds %>
-<%= f.text_field :beds %>
-<br>
+  <h3>Newest results in <%= @final_output.first[:neighborhood] %>!</h3>
 
-<%= f.label :baths %>
-<%= f.text_field :baths %>
-<br>
+  <% @final_output.each do |listing| %>
 
-<%= f.label :min_price %>
-<%= f.text_field :min_price %>
-<br>
+  <h3><a href="<%= listing[:listing_link] %>"><p><%= listing[:address] %></p></a></h3>
 
-<%= f.label :max_price %>
-<%= f.text_field :max_price %>
-<br>
+     <a href="<%= listing[:listing_link] %>"><img src="<%=listing[:image_url]%>"></a>
+     
+     <p><%= listing[:price] %></p>
+     <p><%= listing[:beds] %></p>
+     <p><%= listing[:baths] %></p>
 
-<%= f.submit %>
-
+  <% end %>
 <% end %>

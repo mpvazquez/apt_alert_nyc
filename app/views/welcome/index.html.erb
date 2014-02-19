@@ -1,1 +1,34 @@
-<%= link_to "Where are you apartment hunting?", areas_path %>
+
+<h3>Please choose your rental criteria below</h3>
+
+<%= form_tag("/listings", method: "GET") do %>
+
+<%= label_tag(:zip, "Zip Code") %>
+<%= text_field_tag(:zip) %>
+<br>
+
+<%= label_tag(:beds, "Number of Bedrooms") %>
+<%= text_field_tag(:beds) %>
+<br>
+
+<%= label_tag(:baths, "Minimum Number of Bathrooms") %>
+<%= text_field_tag(:baths) %>
+<br>
+
+<%= label_tag(:min_price, "Minimum Price") %>
+<%= text_field_tag(:min_price) %>
+<br>
+
+<%= label_tag(:min_price, "Maxiumum Price") %>
+<%= text_field_tag(:max_price) %>
+<br>
+
+<%= submit_tag("Search") %>
+
+<% end %>
+
+<!-- Waiting to implement search by area -->
+
+<!-- # <%= link_to "Where are you apartment hunting?", areas_path %> -->
+
+<!-- <%= link_to "Please enter your search criteria", listings_path %> -->

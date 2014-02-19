@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140218021144) do
   end
 
   create_table "listings", force: true do |t|
+    t.integer "zip"
     t.integer "beds"
     t.integer "baths"
     t.integer "min_price"
