@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-results = HTTParty.get("http://streeteasy.com/nyc/api/areas/search?q=*&key=a4cc7c03c02b370efc696191b0abedea2d3d0c60&format=json")
+results = HTTParty.get("http://streeteasy.com/nyc/api/areas/search?q=*&key=#{STREETEASY_API_KEY}&format=json")
 
 results_accessor = results["areas"]
 
