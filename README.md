@@ -1,28 +1,27 @@
-== README
+# APT Alert NYC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###GA WDI NYC Jan 14, Project 1
 
-Things you may want to cover:
+### Overview
 
-* Ruby version
+**APT Alert NYC** was designed to discover apartments in New York City based on the user's local or search area. The users will be notified when a new apartment that fits their criteria has been listed in their search area.
 
-* System dependencies
+This application is still under development and will eventually include features to locate users by geo-location and for users to search by neighborhood. The criteria options will added for more precise searching. 
 
-* Configuration
+This application was developed over a 3 day sprint to model the agile software development process. 
 
-* Database creation
+It was developed as my first project using Ruby on Rails for the January 2014 Web Development Immersive course at General Assembly. 
 
-* Database initialization
+### Technologies Used
 
-* How to run the test suite
+* Ruby 2.1.0
+* Ruby on Rails 4.0.2
+* PostgreSQL Database
+* Nokogiri  1.6.1
+* HTTParty
+* Authentication & Authorization from scratch using [bcrypt-ruby](http://bcrypt-ruby.rubyforge.org/)
 
-* Services (job queues, cache servers, search engines, etc.)
+### [A full list of User Stories](http://bcrypt-ruby.rubyforge.org/) 
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+---
+###### Written by Marco Pretell-Vazquez
