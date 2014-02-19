@@ -23,5 +23,7 @@ It was developed as my first project using Ruby on Rails for the January 2014 We
 
 ### [A full list of User Stories](http://bcrypt-ruby.rubyforge.org/) 
 
+### [ERD/Wireframing](http://imgur.com/U6cSOoK) 
+
 ---
 ###### Written by Marco Pretell-Vazquez
