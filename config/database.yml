@@ -5,8 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  username: mpvazquez
-  host: localhost
+  encoding: unicode
   database: apt_alert_nyc
   pool: 5
   timeout: 5000
