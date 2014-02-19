@@ -8,7 +8,7 @@
 
 
 results = HTTParty.get("http://streeteasy.com/nyc/api/areas/search?q=*&key=#{STREETEASY_API_KEY}&format=json")
-
+binding.pry
 results_accessor = results["areas"]
 
 counter = 0

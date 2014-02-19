@@ -1,28 +1,27 @@
-<% if @final_output.first.nil? %>
-  <h3><%= "No results Found! Please lower your expectations and revise the criteria!" %></h3>
+<h3>Please choose your rental criteria below</h3>
 
-  <% else %>
+<%= form_tag("/listings/search", method: "GET") do %>
 
-  <h3>Newest results in <%= @final_output.first[:neighborhood] %>!</h3>
+<%= label_tag(:zip, "Zip Code") %>
+<%= text_field_tag(:zip) %>
+<br>
 
-  <% @final_output.each do |listing| %>
+<%= label_tag(:beds, "Number of Bedrooms") %>
+<%= text_field_tag(:beds) %>
+<br>
 
-    <%= form_tag(areas_path, method:"POST") do %>
-      <h3><a href="<%= listing[:listing_link] %>"><p><%= listing[:address] %></p></a></h3>
+<%= label_tag(:baths, "Minimum Number of Bathrooms") %>
+<%= text_field_tag(:baths) %>
+<br>
 
-      <a href="<%= listing[:listing_link] %>"><img src="<%=listing[:image_url]%>"></a>
-       
-      <p><%= listing[:price] %></p>
-      <%= hidden_field_tag 'price', listing[:price] %>
-      
-      <p><%= listing[:beds] %></p>
-      <%= hidden_field_tag 'beds', listing[:beds] %>
-      
-      <p><%= listing[:baths] %></p>
-      <%= hidden_field_tag 'baths', listing[:baths] %>
-      
-      <%= submit_tag "Favorite this Apartment!" %>
-    <% end %>
+<%= label_tag(:min_price, "Minimum Price") %>
+<%= text_field_tag(:min_price) %>
+<br>
 
-  <% end %>
+<%= label_tag(:min_price, "Maxiumum Price") %>
+<%= text_field_tag(:max_price) %>
+<br>
+
+<%= submit_tag("Search") %>
+
 <% end %>

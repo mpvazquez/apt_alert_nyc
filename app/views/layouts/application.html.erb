@@ -9,18 +9,33 @@
 <body>
 
 <header>
-<h1><%= link_to "NYC APT Alerts", root_path%></h1>
+  <div>
+    <div>
+      <div id="wrapper">
+        <h1><%= link_to "APT Alerts", root_path%></h1>
+        <h1> </h1>
+        <div class="blackbox">
+          <div class="black">
+            <h2><%= link_to "NYC", root_path%></h2>
+          </div>
+        </div>
+      </div>
 
-<% if logged_in? %>
-  <p><%= link_to("Log Out #{current_user.first_name}!", "/session", method: "delete") %></p>  
-<% else %>
-  <p><%= link_to("Please Log In!","/login") %></p>
-  <p><%= link_to("Register Here", new_user_path) %></p>
-<% end %>
+    </div>
 
+    <% if logged_in? %>
+      <p class="login"><%= link_to("Logout, #{current_user.first_name}", "/session", method: "delete") %></p>  
+    <% else %>
+      <p class="login"><%= link_to("Please Login!","/login") %></p><br>
+      <p class="login"><%= link_to("Register Here", new_user_path) %></p>
+    <% end %>
+  </div>
+  
 </header>
 
+<div class="content">
 <%= yield %>
+</div>
 
 </body>
 </html>

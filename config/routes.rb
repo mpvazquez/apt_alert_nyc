@@ -10,6 +10,8 @@ AptAlertNyc::Application.routes.draw do
   get "/listings", to: "listings#index"
   post "/listings", to: "listings#index"
 
+  get "/listings/search", to: "listings#search"
+
 
   get "/login", to: "session#new"
   post "/session", to: "session#create"

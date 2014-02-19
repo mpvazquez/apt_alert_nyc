@@ -4,7 +4,13 @@ class ListingsController < ApplicationController
     @listing = Listing.new
 
     get_listing_data
-  end  
+  end
+
+  def search
+    @listing = Listing.new
+
+    get_listing_data
+  end
 
   def create
     @listing = Listing.find(@area_id)
