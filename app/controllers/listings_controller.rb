@@ -21,6 +21,12 @@ class ListingsController < ApplicationController
 
   private
 
+  def configure_query_url
+    base_url = ["http://streeteasy.com/nyc/for-rent/"]
+
+
+  end
+
   def get_listing_data
     encoded_url = URI.encode("http://streeteasy.com/nyc/for-rent/nyc/status:open%7Cprice:#{params[:min_price]}-#{params[:max_price]}%7Czip:#{params[:zip]}%7Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}")
     listings = Nokogiri::HTML(open(encoded_url)).css('.item_inner')
@@ -33,7 +39,7 @@ class ListingsController < ApplicationController
       output[:neighborhood] = listing.css("div.details_info a").inner_html
       output[:beds] = listing.css("div.details_info span.first_detail_cell").inner_html
       output[:baths] = listing.css("div.details_info span.last_detail_cell").inner_html
-      link = listings.css("div.photo a").attr("href").value
+      link = listing.css("div.photo a").attr("href").value
       output[:listing_link] = "http://streeteasy.com" + link
 
       output
