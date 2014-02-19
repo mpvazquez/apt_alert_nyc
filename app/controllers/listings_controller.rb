@@ -37,7 +37,12 @@ class ListingsController < ApplicationController
 
     @final_output = listings.map do |listing|
       output = {}
-      output[:image_url] = listing.css("div.photo img").attr("src").value
+      
+      if listing.css("div.photo img").attr("src").value.include?(".png")
+        output[:image_url] = "http://streeteasy.com" + listing.css("div.photo img").attr("src").value
+      else 
+        output[:image_url] = listing.css("div.photo img").attr("src").value
+      end
       output[:address] = listing.css("div.details_title a").first.inner_html
       output[:price] = listing.css("div.details_info span.price").inner_html
       output[:neighborhood] = listing.css("div.details_info a").inner_html

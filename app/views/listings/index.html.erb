@@ -7,7 +7,7 @@
 
   <% @final_output.each do |listing| %>
 
-    <%= form_tag(area_listings_path, method:"POST") do %>
+    <%= form_tag(areas_path, method:"POST") do %>
       <h3><a href="<%= listing[:listing_link] %>"><p><%= listing[:address] %></p></a></h3>
 
       <a href="<%= listing[:listing_link] %>"><img src="<%=listing[:image_url]%>"></a>
