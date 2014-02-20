@@ -21,7 +21,7 @@ It was developed as my first project using Ruby on Rails for the January 2014 We
 * HTTParty
 * Authentication & Authorization from scratch using [bcrypt-ruby](http://bcrypt-ruby.rubyforge.org/)
 
-### [A full list of User Stories](http://bcrypt-ruby.rubyforge.org/) 
+### [A full list of User Stories](https://www.pivotaltracker.com/s/projects/1015686) 
 
 ### [ERD/Wireframing](http://imgur.com/U6cSOoK) 
 

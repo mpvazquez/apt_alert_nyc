@@ -82,8 +82,9 @@ a {
 
 .login {
   float: right;
-  margin-right: 40px;
-  font-size: 16px;
+  margin-right: 30px;
+  font-size: 20px;
+  clear: both;
 }
 
 .content {
