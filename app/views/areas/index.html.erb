@@ -1,16 +1,19 @@
- <h3>Choose Your Desired NYC Area!</h3>
+<h3>Choose Your Desired NYC Area!</h3>
 
- <p>Enter A Zip code to search from</p>
+<br>
 
- <%= form_tag("/listings", method: "GET") do %>
+<%= form_tag("/listings", method: "GET") do %>
 
-  <%= label_tag(:zip, "Zip Code") %>
+  <%= label_tag(:zip, "Enter Zip Code") %>
   <%= text_field_tag(:zip) %>
   <br>
+  <%= submit_tag("Find By Zip") %>
 
-  <%= submit_tag("Find Area") %>
+<% end %>
 
-  <% end %>
+<p>or Search by Area</p>
+
+<!-- Option here to find by selecting area -->
 
  <ul>
   <% @areas.find_all do |area| %>
