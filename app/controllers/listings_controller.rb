@@ -1,6 +1,5 @@
 class ListingsController < ApplicationController
-  include LocatorHelper
-
+  include SetListingAreaHelper
 
   def index
     @listing = Listing.new

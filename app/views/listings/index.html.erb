@@ -2,9 +2,7 @@
 
 <%= form_tag("/listings/search", method: "GET") do %>
 
-<%= label_tag(:zip, "Zip Code") %>
-<%= text_field_tag(:zip) %>
-<br>
+<%= hidden_field_tag(:zip, params[:zip]) %>
 
 <%= label_tag(:beds, "Number of Bedrooms") %>
 <%= text_field_tag(:beds) %>
