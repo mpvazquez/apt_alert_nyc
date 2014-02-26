@@ -41,7 +41,6 @@ class ListingsController < ApplicationController
   end
 
   def get_listing_data
-    binding.pry
     if params[:zip].blank? 
       url_maker = "http://streeteasy.com/nyc/for-rent/#{@area.path}/status:open%7Cprice:#{params[:min_price]}-#{params[:max_price]}%7Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
     else 
