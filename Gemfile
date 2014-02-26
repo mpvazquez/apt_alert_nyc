@@ -32,8 +32,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'pry-rails', :group => :development
-
 gem 'httparty'
 
 # Use ActiveModel has_secure_password
