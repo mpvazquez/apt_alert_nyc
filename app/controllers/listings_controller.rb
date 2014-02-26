@@ -1,15 +1,13 @@
 class ListingsController < ApplicationController
   include SetListingAreaHelper
+  before_action :load_area, only: [:index, :search]
 
   def index
     @listing = Listing.new
-    @area = Area.find_by(id: params[:areas])
-    get_listing_data
   end
 
   def search
     @listing = Listing.new
-
     get_listing_data
   end
 
@@ -34,12 +32,23 @@ class ListingsController < ApplicationController
 
   private
 
+  def load_area
+    @area = Area.find_by(id: params[:areas])
+  end
+
   def configure_query_url
     base_url = ["http://streeteasy.com/nyc/for-rent/"]
   end
 
   def get_listing_data
-    encoded_url = URI.encode("http://streeteasy.com/nyc/for-rent/nyc/status:open%7Cprice:#{params[:min_price]}-#{params[:max_price]}%7Czip:#{params[:zip]}%7Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}")
+    binding.pry
+    if params[:zip].blank? 
+      url_maker = "http://streeteasy.com/nyc/for-rent/#{@area.path}/status:open%7Cprice:#{params[:min_price]}-#{params[:max_price]}%7Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
+    else 
+      url_maker = "http://streeteasy.com/nyc/for-rent/nyc/status:open%7Cprice:#{params[:min_price]}-#{params[:max_price]}%7Czip:#{params[:zip]}%7Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
+    end
+
+    encoded_url = URI.encode(url_maker)
     listings = Nokogiri::HTML(open(encoded_url)).css('.item_inner')
 
     @final_output = listings.map do |listing|
