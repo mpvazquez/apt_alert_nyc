@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 
   def index
     @listing = Listing.new
-
+    @area = Area.find_by(id: params[:areas])
     get_listing_data
   end
 

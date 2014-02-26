@@ -47,6 +47,16 @@ gem 'json'
 
 gem 'rails_12factor', group: :production
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

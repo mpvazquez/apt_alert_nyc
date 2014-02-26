@@ -9,3 +9,10 @@ development:
   database: apt_alert_nyc
   pool: 5
   timeout: 5000
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: apt_alert_nyc_test
+  pool: 5
+  timeout: 5000

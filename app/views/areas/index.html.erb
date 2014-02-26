@@ -1,27 +1,20 @@
 <h3>Choose Your Desired NYC Area!</h3>
 
 <br>
-
 <%= form_tag("/listings", method: "GET") do %>
 
   <%= label_tag(:zip, "Enter Zip Code") %>
   <%= text_field_tag(:zip) %>
-  <br>
-  <%= submit_tag("Find By Zip") %>
+  <input type="submit" value="Find By Zipcode" />
 
 <% end %>
 
-<p>or Search by Area</p>
-
 <!-- Option here to find by selecting area -->
+<p>Or</p>
 
- <ul>
-  <% @areas.find_all do |area| %>
-    <% case area.level %>
-      <% when 1 %>
-      <li>
-        <%= link_to "#{area.title}", area_path(area) %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<form action="/listings" method="GET">
+  <%= label_tag "Search by Area" %>
+  <%= select_tag "areas", options_from_collection_for_select(@areas.where(level: 1), "id", "title") %>
+  <input type="submit" value="Select Areas" />
+</form>
+

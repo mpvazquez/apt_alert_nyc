@@ -1,8 +1,11 @@
-<h3>Please choose your rental criteria below</h3>
+<div class="select_area">
+  <h3>Please choose your rental criteria for <%= @area.title %></h3>
+</div>
 
 <%= form_tag("/listings/search", method: "GET") do %>
 
 <%= hidden_field_tag(:zip, params[:zip]) %>
+<%= hidden_field_tag(:areas, params[:areas]) %>
 
 <%= label_tag(:beds, "Number of Bedrooms") %>
 <%= text_field_tag(:beds) %>

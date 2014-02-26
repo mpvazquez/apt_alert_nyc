@@ -5,7 +5,6 @@ class AreasController < ApplicationController
   before_action :load_all, only: [:index, :show]
 
   def index
-    locate_by_zip(params[:zip])
   end
 
   def show
