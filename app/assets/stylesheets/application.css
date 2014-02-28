@@ -73,7 +73,7 @@ h1 {
   font-weight: 200;
   font-family: "helvetica neue", helvetica;
   font-size: 60px;
-  font-size: 7vw;
+  font-size: 5em;
   letter-spacing: 5px;
   padding: 0 30px;
   text-shadow: 2px 2px 9px rgba(148, 150, 148, 1);
@@ -88,9 +88,14 @@ h2 {
   text-shadow: 2px 2px 9px rgba(148, 150, 148, 0.61);
 }
 
+h3 {
+  font-family:sarif;
+  color: white;
+}
+
 p {
   position: relative;
-
+  color: white;
 }
 
 a {
@@ -129,9 +134,13 @@ a {
 @media all and (max-width: 480px){
   h1 {
     padding: 0 0 25px 0;
-    font-size: 12vw;
+    font-size: 10vw;
   }
   h2 {
     font-size: 7vw; 
   }
+  .login {
+    font-size: 4vw;
+    padding-top: 13vw;
+    }
 }

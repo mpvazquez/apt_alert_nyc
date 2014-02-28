@@ -6,21 +6,19 @@
 <%= hidden_field_tag(:zip, params[:zip]) %>
 <%= hidden_field_tag(:areas, params[:areas]) %>
 
-<%= label_tag(:beds, "Number of Bedrooms") %>
-<%= text_field_tag(:beds) %>
 <br>
 
-<%= label_tag(:baths, "Minimum Number of Bathrooms") %>
-<%= text_field_tag(:baths) %>
-<br>
+<p><%= label_tag(:beds, "Number of Bedrooms") %>
+<%= text_field_tag(:beds) %></p>
 
-<%= label_tag(:min_price, "Minimum Price") %>
-<%= text_field_tag(:min_price) %>
-<br>
+<p><%= label_tag(:baths, "Minimum Number of Bathrooms") %>
+<%= text_field_tag(:baths) %></p>
 
-<%= label_tag(:min_price, "Maxiumum Price") %>
-<%= text_field_tag(:max_price) %>
-<br>
+<p><%= label_tag(:min_price, "Minimum Price") %>
+<%= text_field_tag(:min_price) %></p>
+
+<p><%= label_tag(:min_price, "Maxiumum Price") %>
+<%= text_field_tag(:max_price) %></p>
 
 <%= submit_tag("Search") %>
 

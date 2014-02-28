@@ -3,9 +3,9 @@
 <br>
 <%= form_tag("/listings", method: "GET") do %>
 
-  <%= label_tag(:zip, "Enter Zip Code") %>
+  <p><%= label_tag(:zip, "Enter Zip Code") %>
   <%= text_field_tag(:zip) %>
-  <input type="submit" value="Find By Zipcode" />
+  <input type="submit" value="Search" /></p>
 
 <% end %>
 
@@ -14,8 +14,8 @@
 
 <%= form_tag("/listings", method: "GET") %>
 
-  <%= label_tag "Select NYC Borough" %>
+  <p><%= label_tag "Select NYC Borough" %>
   <%= select_tag "areas", options_from_collection_for_select(@areas, "id", "title"), {multiple: true} %>
-  <input type="submit" value="Select Areas" />
+  <input type="submit" value="Select" /></p>
 </form>
 

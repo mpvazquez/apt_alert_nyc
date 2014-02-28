@@ -1,6 +1,6 @@
 <h3>Choose part of <%= @area.title %></h3>
 
-<ul>
+<!-- <ul>
   <% @areas.each do |area| %>
     <% case area.se_parent_id %>
       <% when @area.se_id %>
@@ -9,12 +9,14 @@
       </li>
     <% end %>
   <% end %>
-</ul>
+</ul> -->
 
 <!-- <p><%= link_to "Choose your Search Criteria", listings_path %></p> -->
 
-<form action="listings" method="GET">
-  <%= label_tag "Select Neighborhood" %>
-  <%= select_tag "areas", options_from_collection_for_select(@areas.where(level: 2), "id", "title") %>
-  <input type="submit" value="Select Areas" />
-</form>
+<p>
+  <form action="listings" method="GET">
+    <%= label_tag "Select Neighborhood" %>
+    <%= select_tag "areas", options_from_collection_for_select(@areas.where(level: 2), "id", "title") %>
+    <input type="submit" value="Select Areas" />
+  </form>
+</p>
