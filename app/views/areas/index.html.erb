@@ -12,9 +12,10 @@
 <!-- Option here to find by selecting area -->
 <p>Or</p>
 
-<form action="/listings" method="GET">
-  <%= label_tag "Search by Area" %>
-  <%= select_tag "areas", options_from_collection_for_select(@areas.where(level: 1), "id", "title") %>
+<%= form_tag("/listings", method: "GET") %>
+
+  <%= label_tag "Select NYC Borough" %>
+  <%= select_tag "areas", options_from_collection_for_select(@areas, "id", "title"), {multiple: true} %>
   <input type="submit" value="Select Areas" />
 </form>
 

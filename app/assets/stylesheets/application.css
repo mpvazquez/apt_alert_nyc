@@ -22,44 +22,61 @@ pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
 /*Start CSS Changes*/
 
 body, h2 {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#bg-img {
+  width: 100%;
+  height: 100%;
   background: url('http://www.wallpaperhi.com/thumbnails/detail/20120917/skylines%20new%20york%20city%201920x1200%20wallpaper_www.wallpaperhi.com_8.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  position: fixed;
+
+  filter: brightness(80%);
+  -webkit-filter: brightness(80%);
+  -moz-filter: brightness(80%);
+  -o-filter: brightness(80%);
+  -ms-filter: brightness(80%);
+
+  z-index: -1;
+}
+
+#title-wrapper {
+  display: block;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+#title-wrapper h1 {
+  clear: both;
   text-align: center;
-  /*text-transform: uppercase;*/
-  font-family: sans-serif;
 }
 
-#wrapper {
-  display: inline-block;
-  border: 2px solid rgba(0, 0, 0, .3);
-    /*
-    display:none
-    */;
-}
-
-.blackbox {
+.title-bigborder {
   position: absolute;
   display: inline-block;
   left: 0;
   right: 0;
+  background-color: rgba(0, 0, 0, .3);
 }
 
-.black {
-  background-color: rgba(0, 0, 0, .3);
+.title-blackbox {
   display: inline-block;
+  background-color: rgba(0, 0, 0, .3);
 }
 
 h1 {
   color: #FFF;
-  font-weight: 100;
+  font-weight: 200;
   font-family: "helvetica neue", helvetica;
   font-size: 60px;
   font-size: 7vw;
   letter-spacing: 5px;
   padding: 0 30px;
+  text-shadow: 2px 2px 9px rgba(148, 150, 148, 1);
 }
 
 h2 {
@@ -67,7 +84,8 @@ h2 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   padding: 0 20px;
-  font-size: 3vw;
+  font-size: 3em;
+  text-shadow: 2px 2px 9px rgba(148, 150, 148, 0.61);
 }
 
 p {
@@ -78,19 +96,34 @@ p {
 a {
   color: #FFF;
   text-decoration: none;
+
 }
 
 .login {
   float: right;
-  margin-right: 30px;
+  margin: 30px;
   font-size: 20px;
-  clear: both;
 }
 
-.content {
+.login a {
+  float: right;
+}
+
+.content-wrapper {
   clear: both;
   margin: 50px;
   font-size: 20px;
+  padding-top: 3em;
+}
+
+.welcome-icons {
+  display: block;
+  margin: 1em 0 3em 0;
+}
+
+.page-wrapper {
+  z-index: 1;
+  clear: both;
 }
 
 @media all and (max-width: 480px){
@@ -99,6 +132,6 @@ a {
     font-size: 12vw;
   }
   h2 {
-    font-size: 7vw;
+    font-size: 7vw; 
   }
 }

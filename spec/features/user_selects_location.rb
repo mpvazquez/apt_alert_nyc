@@ -21,11 +21,11 @@ describe "a user can select a single location before doing listing searches" do
     click_button "Select Areas"
 
     visit listings_path(area)
+    visit listings_search_path
 
   #expectations
     within ".select_area" do
       expect(page).to have_content "#{area.title}"
-      save_and_open_page
     end
   end
 end

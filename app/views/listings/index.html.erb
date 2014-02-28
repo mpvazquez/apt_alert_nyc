@@ -1,7 +1,5 @@
-<div class="select_area">
-  <h3>Please choose your rental criteria <%= if @area 
-  "in #{@area.title}" end%></h3>
-</div>
+<h3>Please choose your rental criteria <%= if @area 
+"in #{@area.title}" end%></h3>
 
 <%= form_tag("/listings/search", method: "GET") do %>
 
