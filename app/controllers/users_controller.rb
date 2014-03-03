@@ -11,14 +11,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    
+    @user = User.create(user_params)
 
-    if @user.save 
-      redirect_to user_path(@user)
-    else
-      render(:new)
-    end
+    # if @user.save 
+    #   redirect_to user_path(@user)
+    # else
+    #   render(:new)
+    # end
+
+    session[:user_id] = @user.id
+    redirect_to user_path(@user)
   end
 
   def edit
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    return params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    return params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :password_digest)
   end
 
   def authenticate
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def authorize
-    unless current_user == @user_path
+    unless current_user == @user
       redirect_to login_path
     end
   end
