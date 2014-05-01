@@ -13,7 +13,6 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.find(@area_id)
-
     @favorite_creator = Area.find_by(title: "params[:neighborhood]")
   end
 
