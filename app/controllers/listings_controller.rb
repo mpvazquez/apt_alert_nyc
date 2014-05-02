@@ -46,7 +46,6 @@ class ListingsController < ApplicationController
       url_maker = "https://streeteasy.com/for-rent/nyc/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Czip:#{params[:zip]}%257Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
     end
     encoded_url = URI.encode(url_maker)
-    binding.pry
     listings = Nokogiri::HTML(open(encoded_url)).css('.item_inner')
     
     @final_output = listings.map do |listing|
