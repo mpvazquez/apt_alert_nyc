@@ -41,13 +41,14 @@ class ListingsController < ApplicationController
 
   def get_listing_data
     if params[:zip].blank? 
-      url_maker = "http://streeteasy.com/for-rent/#{@area.path}/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Cbeds:#{params[:beds]}%257Cbaths>=#{params[:baths]}"
+      url_maker = "https://streeteasy.com/for-rent/#{@area.path}/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Cbeds:#{params[:beds]}%257Cbaths>=#{params[:baths]}"
     else 
-      url_maker = "http://streeteasy.com/for-rent/nyc/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Czip:#{params[:zip]}%257Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
+      url_maker = "https://streeteasy.com/for-rent/nyc/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Czip:#{params[:zip]}%257Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
     end
     encoded_url = URI.encode(url_maker)
+    binding.pry
     listings = Nokogiri::HTML(open(encoded_url)).css('.item_inner')
-
+    
     @final_output = listings.map do |listing|
       output = {}
       
@@ -59,6 +60,7 @@ class ListingsController < ApplicationController
       output[:address] = listing.css("div.details_title a").first.inner_html
       output[:price] = listing.css("div.details_info span.price").inner_html
       output[:neighborhood] = listing.css("div.details_info a").inner_html
+      beds = listing.css("div.details_info span.first_detail_cell").inner_html
       output[:beds] = listing.css("div.details_info span.first_detail_cell").inner_html
       output[:baths] = listing.css("div.details_info span.last_detail_cell").inner_html
       link = listing.css("div.photo a").attr("href").value
