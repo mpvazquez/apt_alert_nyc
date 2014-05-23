@@ -8,22 +8,26 @@
 
   <% @final_output.each do |listing| %>
 
-    <%= form_tag(areas_path, method:"POST") do %>
-      <h3><a href="<%= listing[:listing_link] %>"><p><%= listing[:address] %></p></a></h3>
-
-      <a href="<%= listing[:listing_link] %>"><img src="<%=listing[:image_url]%>"></a>
-       
-      <p><%= listing[:price] %></p>
-      <%= hidden_field_tag 'price', listing[:price] %>
-      
-      <p><%= listing[:beds] %></p>
-      <%= hidden_field_tag 'beds', listing[:beds] %>
-      
-      <p><%= listing[:baths] %></p>
-      <%= hidden_field_tag 'baths', listing[:baths] %>
-      
-      <%= submit_tag "Favorite this Apartment!" %>
-    <% end %>
+    <div id="listing-layout" class="centered">
+      <%= form_tag(areas_path, method:"POST") do %>
+        <div id="listing-img">
+          <a href="<%= listing[:listing_link] %>"><img src="<%=listing[:image_url]%>"></a>
+        </div>
+        <div id="listing-info">
+          <h3><a href="<%= listing[:listing_link] %>"><p><%= listing[:address] %></p></a></h3>
+          <p><%= listing[:price] %></p>
+          <%= hidden_field_tag 'price', listing[:price] %>
+          
+          <p><%= listing[:beds] %></p>
+          <%= hidden_field_tag 'beds', listing[:beds] %>
+          
+          <p><%= listing[:baths] %></p>
+          <%= hidden_field_tag 'baths', listing[:baths] %>
+          
+          <%#= submit_tag "Favorite this Apartment!" %>
+        </div>
+      <% end %>
+    </div>
 
   <% end %>
 <% end %>

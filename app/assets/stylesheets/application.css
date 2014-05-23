@@ -91,6 +91,7 @@ h2 {
 h3 {
   font-family:sarif;
   color: white;
+  margin-bottom: 2em;
 }
 
 p {
@@ -129,6 +130,28 @@ a {
 .page-wrapper {
   z-index: 1;
   clear: both;
+}
+
+#listing-layout {
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, .3);
+  margin-bottom: 2em;
+  width: 50%;
+}
+
+#listing-info {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#listing-img {
+  display: inline-block;
+  text-align: left;
+}
+
+#listing-img img {
+  max-height: 150px;
 }
 
 @media all and (max-width: 480px){
