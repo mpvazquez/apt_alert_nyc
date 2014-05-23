@@ -1,75 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/mpvazquez/dev/apt_alert_nyc/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/mpvazquez/dev/apt_alert_nyc/app/helpers/locator_helper.rb": [
-        1,
-        1,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/mpvazquez/dev/apt_alert_nyc/app/helpers/set_listing_area_helper.rb": [
-        1,
-        1,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/mpvazquez/dev/apt_alert_nyc/app/models/user.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ]
     },
-    "timestamp": 1393598123
+    "timestamp": 1399060011
   }
 }

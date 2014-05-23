@@ -40,10 +40,10 @@ class ListingsController < ApplicationController
   end
 
   def get_listing_data
-    if params[:zip].blank? 
+    if params[:zip].blank?
       url_maker = "https://streeteasy.com/for-rent/#{@area.path}/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Cbeds:#{params[:beds]}%257Cbaths>=#{params[:baths]}"
     else 
-      url_maker = "https://streeteasy.com/for-rent/nyc/status:open%257Cprice:#{params[:min_price]}-#{params[:max_price]}%257Czip:#{params[:zip]}%257Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
+      url_maker = "http://streeteasy.com/for-rent/nyc/status:open%7Cprice:#{params[:min_price]}-#{params[:max_price]}%7Czip:#{params[:zip]}%7Cbeds:#{params[:beds]}%7Cbaths>=#{params[:baths]}"
     end
     encoded_url = URI.encode(url_maker)
     listings = Nokogiri::HTML(open(encoded_url)).css('.item_inner')
