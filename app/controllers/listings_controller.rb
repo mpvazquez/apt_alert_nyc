@@ -53,8 +53,10 @@ class ListingsController < ApplicationController
       
       if listing.css("div.photo img").attr("src").value.include?(".png")
         output[:image_url] = "http://streeteasy.com" + listing.css("div.photo img").attr("src").value
-      else 
+      elsif listing.css("div.photo img").attr("src").value.include?("https://")
         output[:image_url] = listing.css("div.photo img").attr("src").value
+      else
+        output[:image_url] = "https://s3.amazonaws.com/img.streeteasy.com" + listing.css("div.photo img").attr("src").value
       end
       output[:address] = listing.css("div.details_title a").first.inner_html
       output[:price] = listing.css("div.details_info span.price").inner_html
