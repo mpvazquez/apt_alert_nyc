@@ -138,17 +138,20 @@ a {
   margin-bottom: 2em;
   width: 50%;
   padding: 1em 0;
+  text-align: left;
 }
 
 #listing-info {
   display: inline-block;
   vertical-align: top;
   text-align: center;
+  float: right;
+  margin-right: 2em;
 }
 
 #listing-img {
   display: inline-block;
-  text-align: left;
+  margin-left: 2em;
 }
 
 #listing-img img {
